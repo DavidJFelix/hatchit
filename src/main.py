@@ -1,9 +1,15 @@
-from flask import Flask
-app = Flask(__name__)
+#!/usr/bin/env python
 
-@app.route("/")
-def hello():
-    return "Hello World!"
+import cherrypy
+from jinja2 import Environment, FileSystemLoader
 
-if __name__ == "__main__":
-    app.run()
+j2_env = Environment(loader = FileSystemLoader('templates'))
+
+class Root(object):
+	@cherrypy.expose
+	def index(self):
+		template = j2_env.get_template('base.html')
+		return "Hello World"
+
+cherrypy.config.update({'server.socket_port':5000})
+cherrypy.quickstart(Root())

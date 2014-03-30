@@ -9,7 +9,7 @@ The stack for this application is:
 * Linux (Currently Ubuntu 12.04 LTS)
 * Nginx reverse proxy to Cherrypy WSGI server
 * Python 3.x
-* Flask + SQLAlchemy + Jinja2
+* CherryPy + SQLAlchemy + Jinja2
 * PostgreSQL
 
 ###Using Vagrant
