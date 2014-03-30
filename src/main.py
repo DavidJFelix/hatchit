@@ -11,5 +11,7 @@ class Root(object):
 		template = j2_env.get_template('base.html')
 		return template.render()
 
-cherrypy.config.update({'server.socket_port':5000})
-cherrypy.quickstart(Root())
+cherrypy.config.update('app.config')
+cherrypy.tree.mount(Root(), '/', 'app.config')
+cherrypy.engine.start()
+cherrypy.engine.block()
