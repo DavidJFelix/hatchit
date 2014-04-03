@@ -7,9 +7,9 @@ This is the web application and backend for apps to interface with for the Flock
 The stack for this application is:
 
 * Linux (Currently Ubuntu 12.04 LTS)
-* Nginx reverse proxy to Cherrypy WSGI server
-* Python 3.x
-* CherryPy + SQLAlchemy + Jinja2
+* Nginx reverse proxy and uWSGI container
+* Python 3.3+
+* Flask + SQLAlchemy + Jinja2
 * PostgreSQL
 
 ###Using Vagrant
@@ -24,7 +24,7 @@ The stack for this application is:
 ###Installation in Ubuntu
 
 1. `sudo apt-get install python3 python3-dev virtualenvwrapper postgresql git` to install dependencies
-    1. Note: virtualenvwrapper is a set of functions for bash, so you may need to reload your profile
+    1. Note: virtualenvwrapper is a set of functions for bash, so you may need to reload your profile using `source ~/.bashrc`
     2. Note: virtualenvwrapper functions can be buggy within screen, tmux and zsh
 2. Configure git properly using github guides.
 3. `git clone https://github.com/Automato/flock.git` to get the code
