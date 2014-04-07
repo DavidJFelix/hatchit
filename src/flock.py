@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from flask import Flask, redirect, render_template, request, session, url_for
+from flask import Flask, jsonify, redirect, render_template, request, session, url_for
 from flask_oauthlib.client import OAuth, OAuthException
 
 app = Flask(__name__)
@@ -36,6 +36,34 @@ google = oauth.remote_app(
 @app.route('/')
 def hello_world():
 	return render_template('base.html')
+
+@app.route('/fblogin/authorized')
+@facebook.authorized_handler
+def facebook_authorized(resp):
+    if resp is None:
+        return 'Access denied: reason=%s error=%s' % (
+            request.args['error_reason'],
+            request.args['error_description']
+        )
+    if isinstance(resp, OAuthException):
+        return 'Access denied: %s' % resp.message
+
+    session['facebook_token'] = (resp['access_token'], '')
+    me = facebook.get('/me')
+    return 'Logged in as id=%s name=%s redirect=%s' % \
+        (me.data['id'], me.data['name'], request.args.get('next'))
+
+@app.route('/glogin/authorized')
+@google.authorized_handler
+def authorized(resp):
+    if resp is None:
+        return 'Access denied: reason=%s error=%s' % (
+            request.args['error_reason'],
+            request.args['error_description']
+        )
+    session['google_token'] = (resp['access_token'], '')
+    me = google.get('userinfo')
+    return jsonify({"data": me.data})
 
 @facebook.togengetter
 def get_facebook_oauth_token():
