@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 
 from flask import Flask, jsonify, redirect, render_template, request, session, url_for
+from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+db = SQLAlchemy(app)
+
 app.secret_key = 'development'
 
 @app.route('/')
