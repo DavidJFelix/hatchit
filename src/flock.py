@@ -9,7 +9,8 @@ app.config['FACEBOOK_APP_SECRET'] = ''
 app.config['GOOGLE_APP_ID'] = ''
 app.config['GOOGLE_APP_SECRET'] = ''
 app.secret_key = 'development'
-oauth = OAuth(app)
+
+"""oauth = OAuth(app)
 
 facebook = oauth.remote_app(
 	'facebook',
@@ -32,11 +33,13 @@ google = oauth.remote_app(
 	access_token_url = 'https://accounts.google.com/o/auth2/token',
 	authorize_url = 'https://accounts.google.com/o/oauth2/auth'
 )
+"""
 
 @app.route('/')
 def hello_world():
 	return render_template('base.html')
 
+"""
 @app.route('/fblogin/authorized')
 @facebook.authorized_handler
 def facebook_authorized(resp):
@@ -72,6 +75,7 @@ def get_facebook_oauth_token():
 @google.tokengetter
 def get_google_oauth_token():
 	return session.get('google_token')
+"""
 
 if __name__ == '__main__':
 	app.run()
