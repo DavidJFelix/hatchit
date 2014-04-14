@@ -22,7 +22,10 @@ def get_user(user):
 @app.route('/event/a', methods=['POST'])
 @app.route('/event/add', methods=['POST'])
 def add_event():
-	
+	if not session.get('logged_in'):
+		redirect('/login')
+	else:
+		#TODO: add code for adding event
 
 @app.route('/s/a', methods=['POST'])
 @app.route('/s/add', methods=['POST'])
@@ -31,8 +34,9 @@ def add_event():
 def add_suggestion():
 	if not session.get('logged_in'):
 		redirect('/login')
-	#TODO: add code for suggestion
-	return redirect('/')
+	else:
+		return 'suggestion was added placeholder'
+		#TODO: add code for suggestion
 
 @app.route('/login', methods=['GET','POST'])
 def fake_login():
