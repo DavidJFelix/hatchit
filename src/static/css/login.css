@@ -1,0 +1,75 @@
+@media (min-width: 768px) {
+	.m_row-sm-offset-3 div:first-child[class*="col-"] {
+		margin-left: 25%;
+	}
+}
+
+.m_login .m_authTitle {
+	text-align: center;
+	line-height: 300%;
+}
+	
+.m_login .m_socialButtons a {
+	color: white;
+	opacity:0.9;
+}
+
+.m_login .m_socialButtons a:hover {
+	color: white;
+	opacity:1;    	
+}
+
+.m_login .m_socialButtons .m_btn-facebook {
+	background: #3b5998;
+}
+
+.m_login .m_socialButtons .m_btn-twitter {
+	background: #00aced;
+}
+
+.m_login .m_socialButtons .m_btn-google {
+	background: #c32f10;
+}
+
+.m_login .m_loginOr {
+	position: relative;
+	font-size: 1.5em;
+	color: #aaa;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.m_login .m_loginOr .m_hrOr {
+	background-color: #cdcdcd;
+	height: 1px;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+.m_login .m_loginOr .m_spanOr {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: -0.6em;
+	margin-left: -1.5em;
+	background-color: white;
+	width: 3em;
+	text-align: center;
+}			
+
+.m_login .m_loginForm .input-group.i {
+	width: 2em;
+}
+
+.m_login .m_loginForm .help-block {
+    color: red;
+}
+
+@media (min-width: 768px) {
+	.m_login .m_forgotPwd {
+		text-align: right;
+        margin-top:10px;
+	}		
+}
