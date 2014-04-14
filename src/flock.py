@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from flask import Flask, jsonify, redirect, render_template, request, session, url_for
+from flask import abort, Flask, jsonify, redirect, render_template, request, session, url_for
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -22,14 +22,24 @@ def get_user(user):
 @app.route('/event/a', methods=['POST'])
 @app.route('/event/add', methods=['POST'])
 def add_event():
-	pass
+	
 
 @app.route('/s/a', methods=['POST'])
 @app.route('/s/add', methods=['POST'])
 @app.route('/suggestion/a', methods=['POST'])
 @app.route('/suggestion/add', methods=['POST'])
 def add_suggestion():
-	pass
+	if not session.get('logged_in'):
+		redirect('/login')
+	#TODO: add code for suggestion
+	return redirect('/')
+
+@app.route('/login', methods=['GET','POST'])
+def fake_login():
+	if request.method == 'GET':
+		return 'login form goes here' #FIXME: create login form
+	elif request.method == 'POST':
+		request.form['user'] 
 
 if __name__ == '__main__':
 	app.run()
