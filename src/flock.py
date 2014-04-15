@@ -10,7 +10,7 @@ app.secret_key = 'development'
 
 @app.route('/')
 def hello_world():
-	return render_template('base.html')
+	return render_template('login2.html')
 
 @app.route('/u/<user>')
 @app.route('/user/<user>')
@@ -26,6 +26,7 @@ def add_event():
 		redirect('/login')
 	else:
 		#TODO: add code for adding event
+		pass
 
 @app.route('/s/a', methods=['POST'])
 @app.route('/s/add', methods=['POST'])
@@ -37,6 +38,7 @@ def add_suggestion():
 	else:
 		return 'suggestion was added placeholder'
 		#TODO: add code for suggestion
+		pass
 
 @app.route('/login', methods=['GET','POST'])
 def fake_login():
