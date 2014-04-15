@@ -1,140 +1,192 @@
 <div
 	class="container"
-	><div
-		class="m_login"
-		><h3
-			class="m_authTitle"
-			>Login or <a
-				href="#"
-				>Sign up</a
-			></h3
+	><h1
+		class="text-center"
+		>Sign In</h1
+	><form
+		role="form"
 		><div
-			class="row m_row-sm-offset-3 m_socialButtons"
+			class="row"
 			><div
-				class="col-xs-4 col-sm-2"
+				class="
+					form-group
+					col-xs-10
+					col-xs-offset-1
+					col-sm-8
+					col-sm-offset-2
+					col-md-6
+					col-md-offset-3
+					col-lg-4
+					col-lg-offset-4
+				"
 				><a
-					href="#"
-					class="btn btn-lg btn-block m_btn-facebook"
+					class="
+						btn
+						btn-block
+						btn-social
+						btn-facebook
+					"
 					><i
-						class="fa fa-facebook visible-xs"
+						class="
+							fa
+							fa-facebook
+						"
 						></i
-					><span
-						class="hidden-xs"
-						>Facebook</span
-					></a
-				></div
-			><div
-				class="col-xs-4 col-sm-2"
-				><a
-					href="#"
-					class="btn btn-lg btn-block m_btn-twitter"
-					><i
-						class="fa fa-twitter visible-xs"
-						></i
-					><span
-						class="hidden-xs"
-						>Twitter</span
-					></a
-				></div
-			><div
-				class="col-xs-4 col-sm-2"
-				><a
-					href="#"
-					class="btn btn-lg btn-block m_btn-google"
-					><i
-						class="fa fa-google-plus visible-xs"
-						></i
-					><span
-						class="hidden-xs"
-						>Google+</span
-					></a
+					>Sign in with Facebook</a
 				></div
 			></div
 		><div
-			class="row m_row-sm-offset-3 m_loginOr"
+			class="row"
 			><div
-				class="col-xs-12 col-sm-6"
-				><hr
-					class="m_hrOr"
-					></hr
-				><span
-					class="m_spanOr"
-					>or</span
+				class="
+					form-group
+					col-xs-10
+					col-xs-offset-1
+					col-sm-8
+					col-sm-offset-2
+					col-md-6
+					col-md-offset-3
+					col-lg-4
+					col-lg-offset-4
+				"
+				><a
+					class="
+						btn
+						btn-block
+						btn-social
+						btn-google-plus
+					"
+					><i
+						class="
+							fa
+							fa-google-plus
+						"
+						></i
+					>Sign in with Google</a
 				></div
 			></div
 		><div
-			class="row m_row-sm-offset-3"
+			class="row"
+			><p
+				class="text-center"
+				><strong
+					>or</strong
+				></p
+			></div
+		><hr
+		><div
+			class="row"
 			><div
-				class="col-xs-12 col-sm-6"
-				><form
-					class="m_loginForm"
-					action=""
-					autocomplete="off"
-					method="POST"
-					><div
-						class="input-group"
-						><span 
-							class="input-group-addon"
-							><i
-								class="fa fa-user"
-								></i
-							></span
-						><input
-							type="text"
-							class="form-control"
-							name="username"
-							placeholder="email address"
-							></input
-						></div
+				class="
+					form-group
+					col-xs-10
+					col-xs-offset-1
+					col-sm-8
+					col-sm-offset-2
+					col-md-6
+					col-md-offset-3
+					col-lg-4
+					col-lg-offset-4
+				"
+				><div
+					class="input-group"
+					><label
+						class="sr-only"
+						for="login_username"
+						>Username:</label
 					><span
-						class="help-block"
-						></span
-					><div
-						class="input-group"
-						><span
-							class="input-group-addon"
-							><i
-								class="fa fa-lock"
-								></i
-							></span
-						><input
-							type="password"
-							class="form-control"
-							name="password"
-							placeholder="Password"
-						></input
+						class="input-group-addon"
+						>@</span
+					><input
+						type="text"
+						class="form-control"
+						id="login_username"
+						placeholder="Username"
 					></div
-				><span
-					class="help-block"
-					>Password error</span
-				><button
-					class="btn btn-lg btn-primary btn-block"
-					type="submit"
-					>Login</button
-				></form
+				></div
 			></div
-		></div
-	><div 
-		class="row m_row-sm-offset-3"
 		><div
-			class="col-xs-12 col-sm-3"
-			><label 
-				class="checkbox"
-				><input 
-					type="checkbox"
-					value="remember-me"
-					>Remember Me</label
-				></div
+			class="row"
+			><p
+				class="text-center"
+				><strong
+					>or</strong
+				></p
+			></div
 			><div
-				class="col-xs-12 col-sm-3"
-				><p
-					class="m_forgotPwd"
-					><a
-						href="#"
-						>Forgot password?</a
-					></p
+				class="row"
+				><div
+					class="
+					form-group
+					col-xs-10
+					col-xs-offset-1
+					col-sm-8
+					col-sm-offset-2
+					col-md-6
+					col-md-offset-3
+					col-lg-4
+					col-lg-offset-4
+				"
+				><label
+					class="sr-only"
+					for="login_email"
+					>Email:</label
+				><input
+					type="email"
+					class="form-control"
+					id="login_email"
+					placeholder="Email"
 				></div
 			></div
-		></div
+		><div
+			class="row"
+			><div
+				class="
+					form-group
+					col-xs-10
+					col-xs-offset-1
+					col-sm-8
+					col-sm-offset-2
+					col-md-6
+					col-md-offset-3
+					col-lg-4
+					col-lg-offset-4
+				"
+				><label
+					class="sr-only"
+					for="login_password"
+					>Password:</label
+				><input
+					type="password"
+					class="form-control"
+					id="login_password"
+					placeholder="Password"
+				></div
+			></div
+		><div
+			class="row"
+			><div
+				class="
+					form-group
+					col-xs-10
+					col-xs-offset-1
+					col-sm-8
+					col-sm-offset-2
+					col-md-6
+					col-md-offset-3
+					col-lg-4
+					col-lg-offset-4
+				"
+				><button
+					type="submit"
+					class="
+						btn
+						btn-primary
+						btn-block
+					"
+					>Sign in</button
+				></div
+			></div
+		></form
 	></div
 >
