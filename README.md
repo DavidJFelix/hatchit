@@ -1,6 +1,6 @@
-#Flock
+#Hatchit
 
-This is the web application and backend for apps to interface with for the Flock application.
+This is the web application and backend for apps to interface with for the Hatchit application.
 
 ##Running
 
@@ -27,14 +27,14 @@ The stack for this application is:
     1. Note: virtualenvwrapper is a set of functions for bash, so you may need to reload your profile using `source ~/.bashrc`
     2. Note: virtualenvwrapper functions can be buggy within screen, tmux and zsh
 2. Configure git properly using github guides.
-3. `git clone https://github.com/Automato/flock.git` to get the code
-4. `cd flock`
-5. `mkvirtualenv -p /usr/bin/python3 -r requirements.txt flock` to create a virtualenv for flock
+3. `git clone https://github.com/Automato/hatchit.git` to get the code
+4. `cd hatchit`
+5. `mkvirtualenv -p /usr/bin/python3 -r requirements.txt hatchit` to create a virtualenv for hatchit
     1. The shell should automatically switch to the flock virtual env, it is indicated parenthetically at the front of your command prompt
-    2. To switch env, use `workon flock`
-    3. To get rid of virtual envs, use `deactivate` to leave the virtual env then `rmvirtualenv flock` to remove it from disk
+    2. To switch env, use `workon hatchit`
+    3. To get rid of virtual envs, use `deactivate` to leave the virtual env then `rmvirtualenv hatchit` to remove it from disk
 6. `cd src/` to switch to the source directory
-7. `./app.py` to run the application, where it will begin running however it's setup.
+7. `./hatchit.py` to run the application, where it will begin running however it's setup.
 8. 
 
 ##Setup Nginx Reverse proxy
