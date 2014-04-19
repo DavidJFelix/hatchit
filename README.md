@@ -23,7 +23,7 @@ The stack for this application is:
 
 ###Installation in Ubuntu
 
-1. `sudo apt-get install python3 python3-dev virtualenvwrapper postgresql git` to install dependencies
+1. `sudo apt-get install python3 python3-dev virtualenvwrapper postgresql-client-9.3 libpgsql-dev git` to install dependencies
     1. Note: virtualenvwrapper is a set of functions for bash, so you may need to reload your profile using `source ~/.bashrc`
     2. Note: virtualenvwrapper functions can be buggy within screen, tmux and zsh
 2. Configure git properly using github guides.
