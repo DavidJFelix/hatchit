@@ -6,11 +6,11 @@ This is the web application and backend for apps to interface with for the Hatch
 
 The stack for this application is:
 
-* Linux (Currently Ubuntu 12.04 LTS)
+* Linux (Currently Ubuntu 14.04 LTS Server)
 * Nginx reverse proxy and uWSGI container
-* Python 3.3+
-* Flask + SQLAlchemy + Jinja2
-* PostgreSQL
+* Python 3.4
+* Django
+* PostgreSQL (SQLite dev)
 
 ###Using Vagrant
 
@@ -39,7 +39,8 @@ The stack for this application is:
 
 ##Setup Nginx Reverse proxy
 
--- coming soon --
+There's a sites available config file in the /etc directory. If Nginx is configured to look for sites-enabled files,
+place this file in the sites-available directory and symlink it to sites-enabled.
 
 ##Setup postgreSQL database
 
