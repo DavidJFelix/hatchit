@@ -2,6 +2,15 @@
 
 This is the web application and backend for apps to interface with for the Hatchit application.
 
+##Project Layout
+
+* / - main project root
+* /etc - files potentially needed in the system etc folder
+* /src - django source files
+    * /src/hatchit/ - main django
+    * /src/event\_manager - event\_management app used by hatchit
+
+
 ##Running
 
 The stack for this application is:
