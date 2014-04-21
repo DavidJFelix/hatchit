@@ -13,18 +13,25 @@ class Suggestion(models.Model):
 		(NONE, 'No vote'),
 	)
 	
-	#user=
+	user = models.ForeignKey(User)
 	response = models.CharField(
 		max_length=1,
 		choices=RESPONSE_CHOICES,
 		default=NONE)
-	#suggestion_type=
 	time = models.DateTime(
 		null=True,
 		blank=True
 	)
-	#location=
-	#group=
+	location = models.ForeignKey(
+		Location,
+		null=True,
+		blank=True
+	)
+	group = models.ForeignKey(
+		Group,
+		null=True,
+		blank=True
+	)
 	#activity=
 
 class Location(models.Model):
@@ -39,10 +46,10 @@ class Location(models.Model):
 
 	
 class Event(models.Model):
-	#owner=
-	#invites=
+	owner = models.ForeignKey(User)
+	invites = models.ManyToManyField(User, through='Invite')
 	description = models.TextField()
-	#location=
+	location = models.ForeignKey(Location)
 	start_time = models.DateTime()
 	end_time = models.DateTime(
 		null=True,
@@ -63,10 +70,11 @@ class Invite(models.Model):
 		(MAYBE_NO, 'Maybe No'),
 		(NONE, 'No response'),
 	)
-	#event
-	#user
+	event = models.ForeignKey(Event)
+	user = models.ForeignKey(User)
 	rsvp = models.CharField(
 		max_length=2,
-		choices=RSVP_CHOICESm
-		default=NONE)
-		
+		choices=RSVP_CHOICES,
+		default=NONE
+	)
+
