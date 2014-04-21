@@ -27,6 +27,16 @@ class Suggestion(models.Model):
 	#group=
 	#activity=
 
+class Location(models.Model):
+	x = models.DecimalField(
+		max_digits=10,
+		decimal_digits=5
+	)
+	y = models.DecimalField(
+		max_digits=10,
+		decimal_digits=5
+	)
+
 	
 class Event(models.Model):
 	#owner=
