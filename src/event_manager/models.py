@@ -1,5 +1,15 @@
 from django.db import models
+from django.contrib.auth.models import User, Group
 
+class Location(models.Model):
+	x = models.DecimalField(
+		max_digits=10,
+		decimal_places=5
+	)
+	y = models.DecimalField(
+		max_digits=10,
+		decimal_places=5
+	)
 
 class Suggestion(models.Model):
 	YES = 'Y'
@@ -18,7 +28,7 @@ class Suggestion(models.Model):
 		max_length=1,
 		choices=RESPONSE_CHOICES,
 		default=NONE)
-	time = models.DateTime(
+	time = models.DateTimeField(
 		null=True,
 		blank=True
 	)
@@ -34,24 +44,17 @@ class Suggestion(models.Model):
 	)
 	#activity=
 
-class Location(models.Model):
-	x = models.DecimalField(
-		max_digits=10,
-		decimal_digits=5
-	)
-	y = models.DecimalField(
-		max_digits=10,
-		decimal_digits=5
-	)
 
-	
 class Event(models.Model):
-	owner = models.ForeignKey(User)
+	owner = models.ForeignKey(
+		User,
+		related_name='owner'
+	)
 	invites = models.ManyToManyField(User, through='Invite')
 	description = models.TextField()
 	location = models.ForeignKey(Location)
-	start_time = models.DateTime()
-	end_time = models.DateTime(
+	start_time = models.DateTimeField()
+	end_time = models.DateTimeField(
 		null=True,
 		blank=True
 	)
