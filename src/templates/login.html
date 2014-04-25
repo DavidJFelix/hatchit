@@ -1,4 +1,6 @@
-<div
+{% extends "base.html" %}
+
+{% block content %}<div
 	class="container"
 	><h1
 		class="text-center"
@@ -24,12 +26,12 @@
 						btn
 						btn-block
 						btn-social
-						btn-facebook
+						btn-bookface
 					"
 					><i
 						class="
 							fa
-							fa-facebook
+							fa-bookface
 						"
 						></i
 					>Sign in with Facebook</a
@@ -54,12 +56,12 @@
 						btn
 						btn-block
 						btn-social
-						btn-google-plus
+						btn-plus-google
 					"
 					><i
 						class="
 							fa
-							fa-google-plus
+							fa-plus-google
 						"
 						></i
 					>Sign in with Google</a
@@ -189,4 +191,5 @@
 			></div
 		></form
 	></div
->
+>{% endblock %}
+

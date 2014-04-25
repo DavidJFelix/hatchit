@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+{% for suggestion in suggestions %}
+<div class="row">{{suggestion}}</div>
+{% endfor %}
+</div>
+{% endblock %}
