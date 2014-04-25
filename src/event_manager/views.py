@@ -3,7 +3,7 @@ from event_manager.models import Suggestion, Event
 from django.contrib.auth.decorators import login_required
 
 def home(request):
-	return render(request, 'login2.html', {})
+	return render(request, 'login.html', {})
 
 #FIXME: Remove comment when login works
 #@login_required
