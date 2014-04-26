@@ -3,6 +3,7 @@ import json
 from django.http import HttpResponse
 from event_manager.models import Suggestion, Event, Invite
 from django.contrib.auth.models import User
+from datetime import datetime
 
 def api_get(request, type="e"):
 		if type == "e":
