@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/', 'django.contrib.auth.views.login', {'template_name': 'login2.html'}),
     url(r'^logout/', 'django.contrib.auth.views.logout', {'template_name': 'login.html'}),
+    url(r'^event/add/', 'event_manager.views.api.new', name='add'),
     url(r'^api/(?P<type>[a-z]{1})/$', 'event_manager.views.api_get', name='api'),
 )
