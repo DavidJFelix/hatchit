@@ -50,3 +50,34 @@ def api_get(request, type="e"):
 		else:
 			return render(request, 'api.html', {'data': ""})
 
+
+def new(request):
+		# event_description = request.POST["description"]
+		# event_owner_id = request.POST["owner_id"]
+		# event_location_id = request.POST["location_id"]
+
+		event_description = "Felix"
+		event_owner_id = 1
+		event_location_id = 1
+		event_start_time = datetime.now()
+		event = Event(
+			description = event_description,
+			owner_id = event_owner_id,
+			location_id = event_location_id,
+			start_time = event_start_time
+		)
+		event_id = event.id
+		event.save()
+
+		invite_event_id = event_id
+		invite_user_id = 1
+		# invite_rsvp = "NONE"
+		invite = Invite(
+			event_id = invite_event_id,
+			user_id = 1,
+			rsvp = event.NONE
+		)
+
+		invite.save()
+
+		return HttpResponse("ASDF", content_type="application/json")
