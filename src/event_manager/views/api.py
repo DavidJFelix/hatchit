@@ -52,6 +52,7 @@ def api_get(request, type="e"):
 			return render(request, 'api.html', {'data': ""})
 
 
+# TODO : Build add services for events, suggestions, invites seperately
 def new(request):
 		# event_description = request.POST["description"]
 		# event_owner_id = request.POST["owner_id"]
@@ -68,7 +69,7 @@ def new(request):
 			start_time = event_start_time
 		)
 
-		
+
 		event.save()
 		event_id = event.id
 
