@@ -19,3 +19,6 @@ def my_events(request):
 	events = Event.objects.values()
 	return render(request, 'events.html', {'events': events})
 	
+
+def hello_world(request):
+	return render(request, 'test.html', {})
