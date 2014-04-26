@@ -67,8 +67,10 @@ def new(request):
 			location_id = event_location_id,
 			start_time = event_start_time
 		)
-		event_id = event.id
+
+		
 		event.save()
+		event_id = event.id
 
 		invite_event_id = event_id
 		invite_user_id = 1
