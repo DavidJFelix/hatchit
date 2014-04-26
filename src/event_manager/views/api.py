@@ -76,7 +76,7 @@ def new(request):
 		invite = Invite(
 			event_id = invite_event_id,
 			user_id = 1,
-			rsvp = event.NONE
+			rsvp = Invite.NONE
 		)
 
 		invite.save()
