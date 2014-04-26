@@ -22,14 +22,6 @@ def my_events(request):
 	events = Event.objects.values()
 	return render(request, 'events.html', {'events': events})
 	
-
-def hello_world(request):
-	return render(request, 'test.html', {})
-
-def event_form(request):
-	return render(request, 'form.html', {})
-
-
 def api_get(request, type="e"):
 		if type == "e":
 			# data = Event.objects.values()
