@@ -59,15 +59,6 @@ class Event(models.Model):
 		blank=True
 	)
 
-	def get_dict(self):
-		return 	{
-			"event_id": self.id,
-			"event_owner": self.owner_id,
-			"event_description": self.description,
-			"event_location_id": self.location_id,
-			"event_start_time": self.start_time,
-			"event_end_time": self.end_time,
-		}
 
 class Invite(models.Model):
 	YES = 'Y'
