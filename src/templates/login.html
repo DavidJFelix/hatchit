@@ -7,7 +7,9 @@
 		>Sign In</h1
 	><form
 		role="form"
-		><div
+		method="post"
+		action="{% url 'django.contrib.auth.views.login' %}"
+		>{% csrf_token %}<div
 			class="row"
 			><div
 				class="
@@ -94,7 +96,7 @@
 					class="input-group"
 					><label
 						class="sr-only"
-						for="login_username"
+						for="username"
 						>Username:</label
 					><span
 						class="input-group-addon"
@@ -102,7 +104,7 @@
 					><input
 						type="text"
 						class="form-control"
-						id="login_username"
+						id="username"
 						placeholder="Username"
 					></div
 				></div
@@ -156,12 +158,12 @@
 				"
 				><label
 					class="sr-only"
-					for="login_password"
+					for="password"
 					>Password:</label
 				><input
 					type="password"
 					class="form-control"
-					id="login_password"
+					id="password"
 					placeholder="Password"
 				></div
 			></div

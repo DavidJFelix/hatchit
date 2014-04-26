@@ -7,5 +7,8 @@ urlpatterns = patterns('',
     url(r'^$', 'event_manager.views.home', name='home'),
     url(r'^s/$', 'event_manager.views.my_suggestions', name='suggestions'),
     url(r'^e/$', 'event_manager.views.my_events', name='events'),
+    url(r'^ejson/$', 'event_manager.views.my_events_json', name='eventjson'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^login/', 'django.contrib.auth.views.login', {'template_name': 'login2.html'}),
+    url(r'^logout/', 'django.contrib.auth.views.logout', {'template_name': 'login.html'}),
 )
