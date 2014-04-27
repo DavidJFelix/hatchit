@@ -36,11 +36,6 @@ class Suggestion(models.Model):
 		null=True,
 		blank=True
 	)
-	group = models.ForeignKey(
-		Group,
-		null=True,
-		blank=True
-	)
 	users = models.ManyToManyField(User)
 
 
