@@ -17,3 +17,15 @@ def my_suggestions(request):
 		} for suggestion in suggestion_objects
 	]
 	return render(request, 'suggestions.html', {'suggestions': suggestions})
+
+
+@login_required
+def new_suggestion(request):
+	if request.POST:
+		"""for each in group
+			suggestion = Suggestion(
+		)
+		suggestion.save()"""
+		pass
+	else:
+		return render(request, 'base.html', {})
