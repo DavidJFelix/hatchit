@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import User
 
 class Location(models.Model):
 	x = models.DecimalField(
@@ -23,7 +23,6 @@ class Suggestion(models.Model):
 		(NONE, 'No vote'),
 	)
 	
-	user = models.ForeignKey(User)
 	response = models.CharField(
 		max_length=1,
 		choices=RESPONSE_CHOICES,
@@ -42,7 +41,7 @@ class Suggestion(models.Model):
 		null=True,
 		blank=True
 	)
-	#activity=
+	users = models.ManyToManyField(User)
 
 
 class Event(models.Model):
