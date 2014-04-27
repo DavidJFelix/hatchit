@@ -41,7 +41,7 @@ def api_get(request, type="e"):
 			data = [
 				{
 					"id": suggestion.id,
-					"username": suggestion.user_id,
+				#	"username": suggestion.user_id,
 					"first_name": suggestion.response,
 					"last_name": str(suggestion.time)
 				} for suggestion in Suggestions

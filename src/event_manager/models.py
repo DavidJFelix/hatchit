@@ -36,8 +36,11 @@ class Suggestion(models.Model):
 		null=True,
 		blank=True
 	)
-	users = models.ManyToManyField(User)
+	users = models.ManyToManyField(User, through='SuggestionUser')
 
+class SuggestionUser(models.Model):
+	user = models.ForeignKey(User)
+	suggestion = models.ForeignKey(Suggestion)
 
 class Event(models.Model):
 	owner = models.ForeignKey(
