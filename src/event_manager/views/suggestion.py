@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from event_manager.models import Suggestion, SuggestionUser
 from django.contrib.auth.models import User
-from django.forms import ModelForm
+from event_manager.forms import SuggestionForm
 
 @login_required
 def my_suggestions(request):
