@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from event_manager.models import Suggestion, SuggestionUser
 from django.contrib.auth.models import User
+from django.forms import ModelForm
 
 @login_required
 def my_suggestions(request):
@@ -22,11 +23,7 @@ def my_suggestions(request):
 
 @login_required
 def new_suggestion(request):
-	if request.POST:
-		"""for each in group
-			suggestion = Suggestion(
-		)
-		suggestion.save()"""
+	if request.method == POST:
 		pass
 	else:
 		return render(request, 'base.html', {})
