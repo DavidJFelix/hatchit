@@ -24,6 +24,11 @@ def my_suggestions(request):
 @login_required
 def new_suggestion(request):
 	if request.method == POST:
-		pass
+		form = SuggestionForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/') #FIXME: redirect to my suggested items
 	else:
-		return render(request, 'base.html', {})
+		form = SuggestionForm()
+	
+	return render(request, 'base.html', {'form': form})
