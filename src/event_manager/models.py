@@ -12,6 +12,18 @@ class Location(models.Model):
 	)
 
 class Suggestion(models.Model):
+	time = models.DateTimeField(
+		null=True,
+		blank=True
+	)
+	location = models.ForeignKey(
+		Location,
+		null=True,
+		blank=True
+	)
+	users = models.ManyToManyField(User, through='SuggestionUser')
+
+class SuggestionUser(models.Model):
 	YES = 'Y'
 	NO = 'N'
 	MAYBE = 'M'
@@ -27,18 +39,6 @@ class Suggestion(models.Model):
 		max_length=1,
 		choices=RESPONSE_CHOICES,
 		default=NONE)
-	time = models.DateTimeField(
-		null=True,
-		blank=True
-	)
-	location = models.ForeignKey(
-		Location,
-		null=True,
-		blank=True
-	)
-	users = models.ManyToManyField(User, through='SuggestionUser')
-
-class SuggestionUser(models.Model):
 	user = models.ForeignKey(User)
 	suggestion = models.ForeignKey(Suggestion)
 
