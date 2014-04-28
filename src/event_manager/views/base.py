@@ -21,3 +21,7 @@ def login_user(request):
 				return HttpResponseRedirect('/e/')
 	
 	return render(request, 'login.html', {})
+	
+	
+def register_user(request):
+	pass
