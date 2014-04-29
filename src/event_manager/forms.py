@@ -1,12 +1,17 @@
 from django.forms import ModelForm
 from django.contrib.auth.models import User
-from event_manager.models import Suggestion
+from event_manager.models import Suggestion, Event
 
 
 class SuggestionForm(ModelForm):
 	class Meta:
 		model = Suggestion
 		fields = ('location', 'users', 'time')
+		
+class EventForm(ModelForm):
+	class Meta:
+		model = Event
+		fields ('owner', 'invites', 'description', 'location', 'start_time')
 
 	
 class UserForm(forms.ModelForm):
