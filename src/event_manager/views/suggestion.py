@@ -3,6 +3,13 @@ from django.contrib.auth.decorators import login_required
 from event_manager.models import Suggestion, SuggestionUser
 from django.contrib.auth.models import User
 from event_manager.forms import SuggestionForm
+from django.core.urlresolvers import reverse
+
+
+@login_required
+def pending_suggestions(request):
+	pass
+
 
 @login_required
 def my_suggestions(request):
@@ -27,7 +34,7 @@ def new_suggestion(request):
 		form = SuggestionForm(request.POST)
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('/') #FIXME: redirect to my suggested items
+			return HttpResponseRedirect(reverse('event_manager.views.my_suggestions'))
 	else:
 		form = SuggestionForm()
 	
