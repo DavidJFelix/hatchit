@@ -21,7 +21,15 @@ class Suggestion(models.Model):
 		null=True,
 		blank=True
 	)
+	owner = models.ForeignKey(
+		User,
+		related_name='owner'
+	)
 	users = models.ManyToManyField(User, through='SuggestionUser')
+	activity = models.CharField(
+		max_length=50,
+		blank=True
+	)
 
 class SuggestionUser(models.Model):
 	YES = 'Y'
