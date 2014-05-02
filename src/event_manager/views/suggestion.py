@@ -32,7 +32,8 @@ def pending_suggestions(request):
 def my_suggestions(request):
 	suggestions = [
 		{
-			"id": suggestion
+			"id": suggestion.id,
+			"response": suggestion.response
 		} for suggestion in Suggestion.objects\
 			.prefecth_related()\
 			.filter(owner_id=request.user.id)
