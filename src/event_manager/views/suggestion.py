@@ -5,25 +5,37 @@ from django.contrib.auth.models import User
 from event_manager.forms import SuggestionForm
 from django.core.urlresolvers import reverse
 
-
+#FIXME: handle "pagination"
 @login_required
 def pending_suggestions(request):
-	pass
-
-
-@login_required
-def my_suggestions(request):
-	suggestion_users = SuggestionUser.objects.select_related().filter(user__id=request.user.id)
-	suggestion_objects = [suggestion_user.suggestion for suggestion_user in suggestion_users] 
+	suggestion_users = list(
+		SuggestionUser.objects\
+		.select_related()\
+		.filter(
+			user_id=request.user.id,
+			suggestion__response=Suggestion.NONE
+		)\
+		.order_by('-suggestion__time')
+	)
 	suggestions = [
 		{
-			"id": suggestion.id,
-		#	"user_name": request.user.username,
-			"response": suggestion.response,
-			"time": suggestion.time,
-			"location_id": suggestion.location_id,
-		#	"group_id": suggestion.group_id,
-		} for suggestion in suggestion_objects
+			#TODO:add elements
+			"id": suggestion_user.suggestion.id,
+			"response": suggestion_user.suggestion.response
+		} for suggestion_user in suggestion_users
+	]
+	return render(request, 'suggestions.html',{'suggestions': suggestions})
+	
+
+#FIXME: handle "pagination"
+@login_required
+def my_suggestions(request):
+	suggestions = [
+		{
+			"id": suggestion
+		} for suggestion in Suggestion.objects\
+			.prefecth_related()\
+			.filter(owner_id=request.user.id)
 	]
 	return render(request, 'suggestions.html', {'suggestions': suggestions})
 
