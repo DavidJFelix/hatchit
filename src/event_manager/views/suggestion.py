@@ -29,7 +29,7 @@ def my_suggestions(request):
 
 
 @login_required
-def new_suggestion(request):
+def add_suggestion(request):
 	if request.method == POST:
 		form = SuggestionForm(request.POST)
 		if form.is_valid():
