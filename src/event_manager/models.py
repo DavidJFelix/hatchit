@@ -10,6 +10,9 @@ class Location(models.Model):
 		max_digits=10,
 		decimal_places=5
 	)
+	
+	def __str__(self):
+		return "x:" + str(self.x) + ", y:" + str(self.y)
 
 class Suggestion(models.Model):
 	time = models.DateTimeField(
@@ -30,6 +33,9 @@ class Suggestion(models.Model):
 		max_length=50,
 		blank=True
 	)
+	
+	def __str__(self):
+		return str(self.owner) + ":" str(self.activity) + " @ " + str(self.location) + ", " + str(self.time)
 
 class SuggestionUser(models.Model):
 	YES = 'Y'
@@ -49,6 +55,9 @@ class SuggestionUser(models.Model):
 		default=NONE)
 	user = models.ForeignKey(User)
 	suggestion = models.ForeignKey(Suggestion)
+	
+	def __str__(self):
+		return str(self.user) + ":" + str(self.suggestion)
 
 class Event(models.Model):
 	owner = models.ForeignKey(
@@ -63,6 +72,9 @@ class Event(models.Model):
 		null=True,
 		blank=True
 	)
+	
+	def __str__(self):
+		return str(self.owner) + ":" str(self.location) + "@" + str(self.start_time)
 
 
 class Invite(models.Model):
@@ -85,4 +97,7 @@ class Invite(models.Model):
 		choices=RSVP_CHOICES,
 		default=NONE
 	)
-
+	
+	def __str__(self):
+		return str(user) + ":" + str(event)
+	
