@@ -1,5 +1,5 @@
 from django.contrib import admin
-from event_manager.models import *
+from .models import Suggestion, Event, Invite, Location, SuggestionUser
 
 # Register your models here.
 admin.site.register(Suggestion)
