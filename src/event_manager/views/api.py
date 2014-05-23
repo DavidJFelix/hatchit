@@ -1,9 +1,9 @@
-from django.shortcuts import render
 import json
-from django.http import HttpResponse
-from event_manager.models import Suggestion, Event, Invite
-from django.contrib.auth.models import User
 from datetime import datetime
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.contrib.auth.models import User
+from .models import Suggestion, Event, Invite
 
 def api_get(request, type="e"):
 		if type == "e":
