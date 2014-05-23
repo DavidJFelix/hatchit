@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from event_manager.models import Suggestion, SuggestionUser
-from django.contrib.auth.models import User
-from event_manager.forms import SuggestionForm
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from .models import Suggestion, SuggestionUser
+from .forms import SuggestionForm
 
 #FIXME: handle "pagination"
 @login_required
