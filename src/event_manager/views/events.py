@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from event_manager.models import Event, Invite
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from .models import Event, Invite
 
 @login_required
 def my_events(request):
