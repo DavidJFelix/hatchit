@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from django.http import *
+from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login
-from event_manager.forms import UserForm
+from .forms import UserForm
 
 def home(request):
 	return render(request, 'login.html', {})
