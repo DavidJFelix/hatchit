@@ -5,19 +5,19 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     #/ Homepage and hype page
-    url(r'^$', 'event_manager.views.home', name='home'),
+    url(r'^$', 'core.views.home', name='home'),
     
     #/suggestions/ to see pending suggestions and suggestion development
-    url(r'^suggestions/$', 'event_manager.views.pending_suggestions', name='suggestions'),
+    url(r'^suggestions/$', 'core.views.pending_suggestions', name='suggestions'),
     #/suggestions/add to add new suggestion
-    url(r'^suggestion/add/$', 'event_manager.views.add_suggestion', name='add_suggestion'),
+    url(r'^suggestion/add/$', 'core.views.add_suggestion', name='add_suggestion'),
     #/suggestion/<suggestion>/ to view one suggestion
     #/suggestion/<suggestion>/delete/ to delete a suggestion
     #/suggestion/<suggestion>/like/ to like a suggestion
     #/suggestion/<suggestion>/dislike/ to dislike a suggestion
     #/suggestion/<suggestion>/maybe/ to mark a suggestion as indifferent
     #/me/suggestions/ to see your posted suggestions
-    url(r'^me/suggestions/$', 'event_manager.views.my_suggestions', name='my_suggestions'),
+    url(r'^me/suggestions/$', 'core.views.my_suggestions', name='my_suggestions'),
     #/me/suggestions/liked/ to see your liked suggestions
     #/me/suggestions/disliked/ to see your disliked suggestions
     #/me/suggestions/maybe/ to see your maybe suggestions
@@ -27,7 +27,7 @@ urlpatterns = patterns('',
     #/user/<username>/maybe/ to see indifferent suggestions
     
     #/events/ to see pending events and event development
-    url(r'^events/$', 'event_manager.views.my_events', name='events'),
+    url(r'^events/$', 'core.views.my_events', name='events'),
     #/events/add/ to form an event from a suggestion
     #/events/<event>/ to view one event
     #/events/<event>/accept/ to rsvp yes
