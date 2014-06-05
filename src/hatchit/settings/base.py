@@ -48,7 +48,7 @@ INSTALLED_APPS = (
 #    'allauth.socialaccount',
 #    'allauth.socialaccount.providers.facebook',
 #    'allauth.socialaccount.providers.google',
-    'event_manager',
+    'core',
 )
 
 MIDDLEWARE_CLASSES = (

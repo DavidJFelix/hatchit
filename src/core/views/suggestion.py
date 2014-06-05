@@ -47,7 +47,7 @@ def add_suggestion(request):
 		form = SuggestionForm(request.POST)
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect(reverse('event_manager.views.my_suggestions'))
+			return HttpResponseRedirect(reverse('core.views.my_suggestions'))
 	else:
 		form = SuggestionForm()
 	

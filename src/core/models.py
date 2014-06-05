@@ -26,7 +26,7 @@ class Suggestion(models.Model):
 	)
 	owner = models.ForeignKey(
 		User,
-		related_name='owner'
+		related_name='suggestion_owner'
 	)
 	users = models.ManyToManyField(User, through='SuggestionUser')
 	activity = models.CharField(
@@ -35,7 +35,7 @@ class Suggestion(models.Model):
 	)
 	
 	def __str__(self):
-		return str(self.owner) + ":" str(self.activity) + " @ " + str(self.location) + ", " + str(self.time)
+		return str(self.owner) + ":" + str(self.activity) + " @ " + str(self.location) + ", " + str(self.time)
 
 class SuggestionUser(models.Model):
 	YES = 'Y'
@@ -62,7 +62,7 @@ class SuggestionUser(models.Model):
 class Event(models.Model):
 	owner = models.ForeignKey(
 		User,
-		related_name='owner'
+		related_name='event_owner'
 	)
 	invites = models.ManyToManyField(User, through='Invite')
 	description = models.TextField()
@@ -74,7 +74,7 @@ class Event(models.Model):
 	)
 	
 	def __str__(self):
-		return str(self.owner) + ":" str(self.location) + "@" + str(self.start_time)
+		return str(self.owner) + ":" + str(self.location) + "@" + str(self.start_time)
 
 
 class Invite(models.Model):
