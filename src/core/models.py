@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Location(models.Model):
+	class Meta:
+		app_label = "core"
+	
 	x = models.DecimalField(
 		max_digits=10,
 		decimal_places=5
@@ -15,6 +18,9 @@ class Location(models.Model):
 		return "x:" + str(self.x) + ", y:" + str(self.y)
 
 class Suggestion(models.Model):
+	class Meta:
+		app_label = "core"
+		
 	time = models.DateTimeField(
 		null=True,
 		blank=True
@@ -38,6 +44,9 @@ class Suggestion(models.Model):
 		return str(self.owner) + ":" + str(self.activity) + " @ " + str(self.location) + ", " + str(self.time)
 
 class SuggestionUser(models.Model):
+	class Meta:
+		app_label = "core"
+		
 	YES = 'Y'
 	NO = 'N'
 	MAYBE = 'M'
@@ -60,6 +69,9 @@ class SuggestionUser(models.Model):
 		return str(self.user) + ":" + str(self.suggestion)
 
 class Event(models.Model):
+	class Meta:
+		app_label = "core"
+		
 	owner = models.ForeignKey(
 		User,
 		related_name='event_owner'
@@ -78,6 +90,9 @@ class Event(models.Model):
 
 
 class Invite(models.Model):
+	class Meta:
+		app_label = "core"
+		
 	YES = 'Y'
 	NO = 'N'
 	MAYBE_YES = 'MY'
