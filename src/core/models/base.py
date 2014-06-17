@@ -5,14 +5,8 @@ class Location(models.Model):
 	class Meta:
 		app_label = "core"
 	
-	x = models.DecimalField(
-		max_digits=10,
-		decimal_places=5
-	)
-	y = models.DecimalField(
-		max_digits=10,
-		decimal_places=5
-	)
+	x = models.DecimalField(max_digits=10, decimal_places=5)
+	y = models.DecimalField(max_digits=10, decimal_places=5)
 	
 	def __str__(self):
 		return "x:" + str(self.x) + ", y:" + str(self.y)
@@ -21,24 +15,11 @@ class Suggestion(models.Model):
 	class Meta:
 		app_label = "core"
 		
-	time = models.DateTimeField(
-		null=True,
-		blank=True
-	)
-	location = models.ForeignKey(
-		Location,
-		null=True,
-		blank=True
-	)
-	owner = models.ForeignKey(
-		User,
-		related_name='suggestion_owner'
-	)
+	time = models.DateTimeField(null=True, blank=True)
+	location = models.ForeignKey(Location, null=True, blank=True)
+	owner = models.ForeignKey(User, related_name='suggestion_owner')
 	users = models.ManyToManyField(User, through='SuggestionUser')
-	activity = models.CharField(
-		max_length=50,
-		blank=True
-	)
+	activity = models.CharField(max_length=50, blank=True)
 	
 	def __str__(self):
 		return str(self.owner) + ":" + str(self.activity) + " @ " + str(self.location) + ", " + str(self.time)
@@ -58,10 +39,7 @@ class SuggestionUser(models.Model):
 		(NONE, 'No vote'),
 	)
 	
-	response = models.CharField(
-		max_length=1,
-		choices=RESPONSE_CHOICES,
-		default=NONE)
+	response = models.CharField(max_length=1, choices=RESPONSE_CHOICES, default=NONE)
 	user = models.ForeignKey(User)
 	suggestion = models.ForeignKey(Suggestion)
 	
@@ -72,18 +50,12 @@ class Event(models.Model):
 	class Meta:
 		app_label = "core"
 		
-	owner = models.ForeignKey(
-		User,
-		related_name='event_owner'
-	)
+	owner = models.ForeignKey(User, related_name='event_owner')
 	invites = models.ManyToManyField(User, through='Invite')
 	description = models.TextField()
 	location = models.ForeignKey(Location)
 	start_time = models.DateTimeField()
-	end_time = models.DateTimeField(
-		null=True,
-		blank=True
-	)
+	end_time = models.DateTimeField(null=True, blank=True)
 	
 	def __str__(self):
 		return str(self.owner) + ":" + str(self.location) + "@" + str(self.start_time)
@@ -107,11 +79,7 @@ class Invite(models.Model):
 	)
 	event = models.ForeignKey(Event)
 	user = models.ForeignKey(User)
-	rsvp = models.CharField(
-		max_length=2,
-		choices=RSVP_CHOICES,
-		default=NONE
-	)
+	rsvp = models.CharField(max_length=2, choices=RSVP_CHOICES, default=NONE)
 	
 	def __str__(self):
 		return str(user) + ":" + str(event)
