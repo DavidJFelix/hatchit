@@ -24,7 +24,7 @@ class Idea(models.Model):
 	def __str__(self):
 		return str(self.owner) + ":" + str(self.activity) + " @ " + str(self.location) + ", " + str(self.time)
 
-class SuggestionUser(models.Model):
+class Suggestion(models.Model):
 	class Meta:
 		app_label = "core"
 		
@@ -41,7 +41,7 @@ class SuggestionUser(models.Model):
 	
 	response = models.CharField(max_length=1, choices=RESPONSE_CHOICES, default=NONE)
 	user = models.ForeignKey(User)
-	suggestion = models.ForeignKey(Suggestion)
+	idea = models.ForeignKey(Idea)
 	
 	def __str__(self):
 		return str(self.user) + ":" + str(self.suggestion)
