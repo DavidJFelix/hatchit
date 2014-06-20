@@ -12,10 +12,15 @@ class EventSerializer(serializers.HyperLinkedModelSerializer):
 
 
 class IdeaSerializer(serializers.HyperlinkedModelSerializer):
+	owner = serializers.Field(source='owner.username')
+	suggestions = serializers.HypperlinkedRelatedField(view_name='suggestion-detail', many=True)
+	
 	class Meta:
 		model = Idea
 
 class InviteSerializer(serializers.HyperlinkedModelSerializer):
+	user = serializers.Field(source='user.username')
+	event = serializers.Field(source='event.description')
 	
 	class Meta:
 		model = Invite
