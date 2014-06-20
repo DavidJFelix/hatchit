@@ -11,14 +11,14 @@ class Location(models.Model):
 	def __str__(self):
 		return "x:" + str(self.x) + ", y:" + str(self.y)
 
-class Suggestion(models.Model):
+class Idea(models.Model):
 	class Meta:
 		app_label = "core"
 		
 	time = models.DateTimeField(null=True, blank=True)
 	location = models.ForeignKey(Location, null=True, blank=True)
-	owner = models.ForeignKey(User, related_name='suggestion_owner')
-	users = models.ManyToManyField(User, through='SuggestionUser')
+	owner = models.ForeignKey(User, related_name='idea_owner')
+	users = models.ManyToManyField(User, through='Suggestion')
 	activity = models.CharField(max_length=50, blank=True)
 	
 	def __str__(self):
