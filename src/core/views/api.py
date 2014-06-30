@@ -3,8 +3,18 @@ from django.contrib.auth.models import User
 from rest_framework.views import viewsets
 from rest_framework.response import Response
 from rest_framework import status
-from ..models import Suggestion, Event, Invite
-from ..serializers import UserSerializer, SuggestionSerializer, EventSerializer, InviteSerializer
+from ..models import Suggestion, Event, Invite, Idea, Location
+from ..serializers import UserSerializer, SuggestionSerializer, EventSerializer, InviteSerializer, LocationSerializer
+
+
+class IdeaViewSet(viewsets.ReadOnlyModelViewSet):
+	queryset = Idea.objects.all()
+	serializer_class = IdeaSerializer
+	
+
+class LocationViewSet(viewsets.ReadOnlyModelViewSet):
+	queryset = Location.objects.all()
+	serializer_class = LocationSerializer
 
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
@@ -13,7 +23,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class SuggestionViewSet(viewsets.ReadOnlyModelViewSet):
-	queryset = Event.objects.all()
+	queryset = Suggestion.objects.all()
 	serializer_class = SuggestionSerializer
 
 
